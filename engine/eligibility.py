@@ -7,7 +7,6 @@ def load_json(file_path):
         return json.load(file)
 
 
-# Text ko comparison ke liye normalize karta hai
 def normalize(value):
     return str(value).strip().lower().replace(".", "")
 
@@ -20,21 +19,17 @@ def check_eligibility(student, scholarship):
         return False, "Income exceeds the scholarship limit"
 
     # Category
-    student_category = normalize(student["category"])
-    allowed_categories = [
-        normalize(category) for category in rules["category"]
-    ]
-
-    if student_category not in allowed_categories:
+    if normalize(student["category"]) not in [
+        normalize(category)
+        for category in rules["category"]
+    ]:
         return False, "Category not eligible"
 
     # Course
-    student_course = normalize(student["course"])
-    allowed_courses = [
-        normalize(course) for course in rules["course"]
-    ]
-
-    if student_course not in allowed_courses:
+    if normalize(student["course"]) not in [
+        normalize(course)
+        for course in rules["course"]
+    ]:
         return False, "Course not eligible"
 
     # Academic percentage
@@ -49,11 +44,30 @@ def check_eligibility(student, scholarship):
             return False, "Gender requirement not satisfied"
 
     # Domicile
-    required_domicile = rules["state_domicile"]
+    required_domicile = rules.get("state_domicile", "All India")
 
     if normalize(required_domicile) != "all india":
         if normalize(student["domicile"]) != normalize(required_domicile):
             return False, "Domicile requirement not satisfied"
+
+    # Disability
+    disability_required = rules.get("disability_required", False)
+
+    if disability_required:
+
+        if not student.get("has_disability", False):
+            return False, "Disability requirement not satisfied"
+
+        minimum_disability = rules.get(
+            "minimum_disability_percentage", 0
+        )
+
+        student_disability = student.get(
+            "disability_percentage", 0
+        )
+
+        if student_disability < minimum_disability:
+            return False, "Disability percentage is below the required minimum"
 
     return True, "All eligibility conditions satisfied"
 
@@ -63,7 +77,6 @@ def find_eligible_scholarships(student, scholarships):
     rejected = []
 
     for scholarship in scholarships:
-
         is_eligible, reason = check_eligibility(
             student,
             scholarship
@@ -71,7 +84,6 @@ def find_eligible_scholarships(student, scholarships):
 
         if is_eligible:
             eligible.append(scholarship)
-
         else:
             rejected.append({
                 "id": scholarship["id"],
@@ -80,80 +92,3 @@ def find_eligible_scholarships(student, scholarships):
             })
 
     return eligible, rejected
-
-
-# --------------------------------------
-# FILE PATHS
-# --------------------------------------
-
-BASE_DIR = os.path.dirname(
-    os.path.dirname(os.path.abspath(__file__))
-)
-
-student_path = os.path.join(
-    BASE_DIR,
-    "data",
-    "student.json"
-)
-
-scholarships_path = os.path.join(
-    BASE_DIR,
-    "data",
-    "scholarships.json"
-)
-
-
-# --------------------------------------
-# LOAD DATA
-# --------------------------------------
-
-student = load_json(student_path)
-scholarships = load_json(scholarships_path)
-
-
-# --------------------------------------
-# CHECK ELIGIBILITY
-# --------------------------------------
-
-eligible, rejected = find_eligible_scholarships(
-    student,
-    scholarships
-)
-
-
-# --------------------------------------
-# OUTPUT
-# --------------------------------------
-
-print("\n======================================")
-print("       MUSA CODEX - ELIGIBILITY")
-print("======================================\n")
-
-print("ELIGIBLE SCHOLARSHIPS:\n")
-
-for scholarship in eligible:
-    print(
-        f"{scholarship['id']} | "
-        f"{scholarship['name']} | "
-        f"Benefit: ₹{scholarship['benefit_amount']}"
-    )
-
-
-print("\n--------------------------------------")
-print("NOT ELIGIBLE:\n")
-
-for scholarship in rejected:
-    print(
-        f"{scholarship['id']} | "
-        f"{scholarship['name']}"
-    )
-
-    print(
-        f"Reason: {scholarship['reason']}\n"
-    )
-
-
-print("--------------------------------------")
-print(f"Total Eligible: {len(eligible)}")
-print(f"Total Rejected: {len(rejected)}")
-print("======================================")
