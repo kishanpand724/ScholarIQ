@@ -1,0 +1,641 @@
+[
+  {
+    "id": "SCH001",
+    "name": "Central Sector Scheme of Scholarship (CSSS)",
+    "provider": "Ministry of Education (Central Govt)",
+    "eligibility": {
+      "income_limit": 450000,
+      "category": [
+        "General",
+        "OBC",
+        "SC",
+        "ST",
+        "EWS"
+      ],
+      "course": [
+        "B.E.",
+        "B.Tech",
+        "B.Sc",
+        "B.Com",
+        "MBBS",
+        "B.A."
+      ],
+      "min_academic_percentage": 80.0,
+      "gender": "All",
+      "state_domicile": "All India"
+    },
+    "benefit_amount": 20000,
+    "required_documents": [
+      "12th Marksheet (Top 20th Percentile)",
+      "Income Certificate (< 4.5 LPA)",
+      "Aadhaar Card",
+      "Bank Passbook seeded with Aadhaar",
+      "College Bonafide Certificate"
+    ],
+    "deadline": "2026-10-31",
+    "conflict_rules": {
+      "cannot_combine_with": [
+        "SCH002",
+        "SCH003",
+        "SCH006",
+        "SCH007"
+      ],
+      "conflict_reason": "Central DBT Rule: Beneficiary cannot draw double benefits from any other Central/State Govt funded scholarship scheme simultaneously.",
+      "can_combine_with": [
+        "SCH004",
+        "SCH005",
+        "SCH011"
+      ]
+    }
+  },
+  {
+    "id": "SCH002",
+    "name": "Post-Matric Scholarship for SC/ST Students",
+    "provider": "State Social Justice & Special Assistance Dept",
+    "eligibility": {
+      "income_limit": 250000,
+      "category": [
+        "SC",
+        "ST"
+      ],
+      "course": [
+        "Diploma",
+        "B.E.",
+        "B.Tech",
+        "B.Sc",
+        "B.Pharm",
+        "B.Arch"
+      ],
+      "min_academic_percentage": 50.0,
+      "gender": "All",
+      "state_domicile": "Maharashtra"
+    },
+    "benefit_amount": 60000,
+    "required_documents": [
+      "Caste Certificate",
+      "Caste Validity Certificate",
+      "Income Certificate from Tahsildar",
+      "Domicile Certificate of Maharashtra",
+      "Current Year College Fee Receipt"
+    ],
+    "deadline": "2026-10-15",
+    "conflict_rules": {
+      "cannot_combine_with": [
+        "SCH001",
+        "SCH006",
+        "SCH007"
+      ],
+      "conflict_reason": "State Scheme clause: Claiming complete tuition fee waiver under state social welfare prevents simultaneous Central grant disbursement.",
+      "can_combine_with": [
+        "SCH004",
+        "SCH005"
+      ]
+    }
+  },
+  {
+    "id": "SCH003",
+    "name": "Pragati Scholarship Scheme for Girl Students",
+    "provider": "AICTE (Central Govt)",
+    "eligibility": {
+      "income_limit": 800000,
+      "category": [
+        "General",
+        "OBC",
+        "SC",
+        "ST",
+        "EWS"
+      ],
+      "course": [
+        "B.E.",
+        "B.Tech",
+        "Diploma"
+      ],
+      "min_academic_percentage": 60.0,
+      "gender": "Female",
+      "state_domicile": "All India"
+    },
+    "benefit_amount": 50000,
+    "required_documents": [
+      "AICTE Centralized Allotment Letter",
+      "Income Certificate issued by competent authority",
+      "Class 12 / Diploma Marksheet",
+      "Bank Account details (Aadhaar linked)"
+    ],
+    "deadline": "2026-11-15",
+    "conflict_rules": {
+      "cannot_combine_with": [
+        "SCH001",
+        "SCH006"
+      ],
+      "conflict_reason": "AICTE Guideline: An awardee under Pragati scheme is not eligible to receive financial benefit from any other Central scholarship.",
+      "can_combine_with": [
+        "SCH004",
+        "SCH005",
+        "SCH014"
+      ]
+    }
+  },
+  {
+    "id": "SCH004",
+    "name": "Tata Trust Means Grant for Engineering & Professional Courses",
+    "provider": "Tata Trusts (Private Philanthropic)",
+    "eligibility": {
+      "income_limit": 600000,
+      "category": [
+        "General",
+        "OBC",
+        "SC",
+        "ST",
+        "EWS"
+      ],
+      "course": [
+        "B.E.",
+        "B.Tech",
+        "MBBS",
+        "B.Pharm"
+      ],
+      "min_academic_percentage": 70.0,
+      "gender": "All",
+      "state_domicile": "All India"
+    },
+    "benefit_amount": 40000,
+    "required_documents": [
+      "Annual College Tuition Fee Structure",
+      "Latest Semester / 12th Marksheet",
+      "Family Income Proof (ITR or Form 16)",
+      "Statement of Purpose / Family Background"
+    ],
+    "deadline": "2026-10-20",
+    "conflict_rules": {
+      "cannot_combine_with": [],
+      "conflict_reason": "Private CSR grant; permits co-beneficiary status with government scholarships.",
+      "can_combine_with": [
+        "SCH001",
+        "SCH002",
+        "SCH003",
+        "SCH007"
+      ]
+    }
+  },
+  {
+    "id": "SCH005",
+    "name": "Reliance Foundation Undergraduate Scholarship",
+    "provider": "Reliance Foundation (Private)",
+    "eligibility": {
+      "income_limit": 1500000,
+      "category": [
+        "General",
+        "OBC",
+        "SC",
+        "ST",
+        "EWS"
+      ],
+      "course": [
+        "B.E.",
+        "B.Tech",
+        "B.Sc",
+        "B.Com",
+        "B.A."
+      ],
+      "min_academic_percentage": 60.0,
+      "gender": "All",
+      "state_domicile": "All India"
+    },
+    "benefit_amount": 200000,
+    "required_documents": [
+      "Aptitude Test Scorecard",
+      "Class 12 Board Marksheet",
+      "Family Income Document",
+      "College Admission Proof"
+    ],
+    "deadline": "2026-10-05",
+    "conflict_rules": {
+      "cannot_combine_with": [],
+      "conflict_reason": "No restrictive administrative clause; purely merit-cum-means CSR award.",
+      "can_combine_with": [
+        "SCH001",
+        "SCH002",
+        "SCH003"
+      ]
+    }
+  },
+  {
+    "id": "SCH006",
+    "name": "Merit-cum-Means Scholarship for Minority Communities",
+    "provider": "Ministry of Minority Affairs (Central Govt)",
+    "eligibility": {
+      "income_limit": 250000,
+      "category": [
+        "Minority"
+      ],
+      "course": [
+        "B.E.",
+        "B.Tech",
+        "MBBS",
+        "MCA",
+        "MBA"
+      ],
+      "min_academic_percentage": 50.0,
+      "gender": "All",
+      "state_domicile": "All India"
+    },
+    "benefit_amount": 30000,
+    "required_documents": [
+      "Self-Declaration of Minority Community",
+      "Income Certificate (< 2.5 LPA)",
+      "Previous Year Academic Marksheet",
+      "Aadhaar Card"
+    ],
+    "deadline": "2026-10-31",
+    "conflict_rules": {
+      "cannot_combine_with": [
+        "SCH001",
+        "SCH002",
+        "SCH003",
+        "SCH007"
+      ],
+      "conflict_reason": "MoMA rule: Applicant cannot be a recipient of any other Central or State government scholarship program.",
+      "can_combine_with": [
+        "SCH004",
+        "SCH005"
+      ]
+    }
+  },
+  {
+    "id": "SCH007",
+    "name": "Rajarshi Chhatrapati Shahu Maharaj Shikshan Shulkh Shishyavrutti Yojna (EBC)",
+    "provider": "Directorate of Technical Education (Maharashtra)",
+    "eligibility": {
+      "income_limit": 800000,
+      "category": [
+        "General",
+        "EWS"
+      ],
+      "course": [
+        "Diploma",
+        "B.E.",
+        "B.Tech",
+        "B.Pharm",
+        "B.Arch"
+      ],
+      "min_academic_percentage": 50.0,
+      "gender": "All",
+      "state_domicile": "Maharashtra"
+    },
+    "benefit_amount": 45000,
+    "required_documents": [
+      "Domicile Certificate of Maharashtra",
+      "Income Certificate (Tahshildar) up to 8 Lakh",
+      "CAP Allotment Letter",
+      "Ration Card Copy (Family declarations)"
+    ],
+    "deadline": "2026-11-30",
+    "conflict_rules": {
+      "cannot_combine_with": [
+        "SCH001",
+        "SCH002",
+        "SCH006"
+      ],
+      "conflict_reason": "State DTE Rule: Eligible only if student is not availing full fee freeship/scholarship under any other scheme.",
+      "can_combine_with": [
+        "SCH004",
+        "SCH005",
+        "SCH011"
+      ]
+    }
+  },
+  {
+    "id": "SCH008",
+    "name": "Siemens Scholarship Program",
+    "provider": "Siemens India (Corporate CSR)",
+    "eligibility": {
+      "income_limit": 200000,
+      "category": [
+        "General",
+        "OBC",
+        "SC",
+        "ST",
+        "EWS"
+      ],
+      "course": [
+        "B.E.",
+        "B.Tech"
+      ],
+      "min_academic_percentage": 60.0,
+      "gender": "All",
+      "state_domicile": "All India"
+    },
+    "benefit_amount": 80000,
+    "required_documents": [
+      "10th & 12th Standard Marksheets",
+      "Government Engineering College Admission Letter",
+      "Tahshildar Verified Income Certificate",
+      "Electricity Bill / Ration Card"
+    ],
+    "deadline": "2026-09-30",
+    "conflict_rules": {
+      "cannot_combine_with": [
+        "SCH009"
+      ],
+      "conflict_reason": "Corporate Clause: Candidate cannot receive major full-tuition coverage from another primary corporate foundation concurrently.",
+      "can_combine_with": [
+        "SCH001",
+        "SCH007"
+      ]
+    }
+  },
+  {
+    "id": "SCH009",
+    "name": "Aditya Birla Capital Foundation Scholarship",
+    "provider": "Aditya Birla Capital (Corporate CSR)",
+    "eligibility": {
+      "income_limit": 600000,
+      "category": [
+        "General",
+        "OBC",
+        "SC",
+        "ST",
+        "EWS"
+      ],
+      "course": [
+        "B.E.",
+        "B.Tech",
+        "B.Sc",
+        "B.Com",
+        "B.A."
+      ],
+      "min_academic_percentage": 60.0,
+      "gender": "All",
+      "state_domicile": "All India"
+    },
+    "benefit_amount": 60000,
+    "required_documents": [
+      "Admission Proof & Fee Receipt",
+      "Income Certificate issued by SDM/DM/Tahsildar",
+      "Photo ID & Aadhaar Card",
+      "Previous Qualifying Examination Marksheet"
+    ],
+    "deadline": "2026-10-10",
+    "conflict_rules": {
+      "cannot_combine_with": [
+        "SCH008"
+      ],
+      "conflict_reason": "Corporate CSR policy: Restricts double-dipping into exclusive industrial corporate funds.",
+      "can_combine_with": [
+        "SCH001",
+        "SCH002",
+        "SCH007"
+      ]
+    }
+  },
+  {
+    "id": "SCH010",
+    "name": "Saksham Scholarship Scheme for Specially-Abled Students",
+    "provider": "AICTE (Central Govt)",
+    "eligibility": {
+      "income_limit": 800000,
+      "category": [
+        "General",
+        "OBC",
+        "SC",
+        "ST",
+        "EWS"
+      ],
+      "course": [
+        "B.E.",
+        "B.Tech",
+        "Diploma"
+      ],
+      "min_academic_percentage": 50.0,
+      "gender": "All",
+      "state_domicile": "All India"
+    },
+    "benefit_amount": 50000,
+    "required_documents": [
+      "Disability Certificate (min 40% disability)",
+      "AICTE College Admission Proof",
+      "Family Income Certificate",
+      "Bank Account Details"
+    ],
+    "deadline": "2026-11-15",
+    "conflict_rules": {
+      "cannot_combine_with": [
+        "SCH001",
+        "SCH003"
+      ],
+      "conflict_reason": "Central Guideline: Cannot draw support from multiple AICTE/MHRD direct benefit schemes.",
+      "can_combine_with": [
+        "SCH004",
+        "SCH005"
+      ]
+    }
+  },
+  {
+    "id": "SCH011",
+    "name": "HDFC Badhte Kadam Scholarship",
+    "provider": "HDFC Bank (CSR)",
+    "eligibility": {
+      "income_limit": 600000,
+      "category": [
+        "General",
+        "OBC",
+        "SC",
+        "ST",
+        "EWS"
+      ],
+      "course": [
+        "B.E.",
+        "B.Tech",
+        "Diploma",
+        "B.Sc",
+        "B.Com"
+      ],
+      "min_academic_percentage": 60.0,
+      "gender": "All",
+      "state_domicile": "All India"
+    },
+    "benefit_amount": 30000,
+    "required_documents": [
+      "Current Year Admission Letter",
+      "Mark Sheets of Class 12 / Previous Year",
+      "Government Issued Income Proof",
+      "Crisis Documentation (if applicable)"
+    ],
+    "deadline": "2026-10-25",
+    "conflict_rules": {
+      "cannot_combine_with": [],
+      "conflict_reason": "Supplementary grant; fully compatible with state fee waiver schemes.",
+      "can_combine_with": [
+        "SCH001",
+        "SCH002",
+        "SCH007"
+      ]
+    }
+  },
+  {
+    "id": "SCH012",
+    "name": "Dr. Panjabrao Deshmukh Hostel Maintenance Allowance",
+    "provider": "State Higher & Technical Education Dept",
+    "eligibility": {
+      "income_limit": 800000,
+      "category": [
+        "General",
+        "OBC",
+        "EWS"
+      ],
+      "course": [
+        "B.E.",
+        "B.Tech",
+        "MBBS",
+        "B.Arch",
+        "B.Pharm"
+      ],
+      "min_academic_percentage": 50.0,
+      "gender": "All",
+      "state_domicile": "Maharashtra"
+    },
+    "benefit_amount": 30000,
+    "required_documents": [
+      "Registered Hostel Certificate or Rent Agreement",
+      "Alpabhudharak Farmer Certificate / Labor Certificate",
+      "Income Certificate up to 8 Lakh",
+      "College Bonafide"
+    ],
+    "deadline": "2026-11-30",
+    "conflict_rules": {
+      "cannot_combine_with": [],
+      "conflict_reason": "Targeted hostel allowance; specifically designed to combine with tuition fee schemes like EBC.",
+      "can_combine_with": [
+        "SCH001",
+        "SCH007",
+        "SCH004"
+      ]
+    }
+  },
+  {
+    "id": "SCH013",
+    "name": "Kishore Vaigyanik Protsahan Yojana / INSPIRE Scholarship (SHE)",
+    "provider": "Department of Science and Technology (DST)",
+    "eligibility": {
+      "income_limit": 9999999,
+      "category": [
+        "General",
+        "OBC",
+        "SC",
+        "ST",
+        "EWS"
+      ],
+      "course": [
+        "B.Sc",
+        "B.S.",
+        "Int. M.Sc"
+      ],
+      "min_academic_percentage": 85.0,
+      "gender": "All",
+      "state_domicile": "All India"
+    },
+    "benefit_amount": 80000,
+    "required_documents": [
+      "Top 1% Rank in 12th Board Certificate",
+      "Admission letter in Pure/Natural Sciences",
+      "Endorsement Certificate by Head of Institution",
+      "SBI Bank Passbook"
+    ],
+    "deadline": "2026-11-10",
+    "conflict_rules": {
+      "cannot_combine_with": [
+        "SCH001",
+        "SCH002",
+        "SCH006"
+      ],
+      "conflict_reason": "DST Directive: Scholar cannot draw any other central/state scholarship while receiving INSPIRE SHE stipend.",
+      "can_combine_with": [
+        "SCH004"
+      ]
+    }
+  },
+  {
+    "id": "SCH014",
+    "name": "L'Oréal India For Young Women In Science Scholarship",
+    "provider": "L'Oréal India (CSR)",
+    "eligibility": {
+      "income_limit": 600000,
+      "category": [
+        "General",
+        "OBC",
+        "SC",
+        "ST",
+        "EWS"
+      ],
+      "course": [
+        "B.E.",
+        "B.Tech",
+        "MBBS",
+        "B.Sc",
+        "B.Pharm"
+      ],
+      "min_academic_percentage": 85.0,
+      "gender": "Female",
+      "state_domicile": "All India"
+    },
+    "benefit_amount": 250000,
+    "required_documents": [
+      "Class 10 and 12 Marksheets (PCM/PCB min 85%)",
+      "Income Certificate or Salary Slips",
+      "Proof of Admission in Science/Tech Stream",
+      "Essay / Video SOP"
+    ],
+    "deadline": "2026-10-18",
+    "conflict_rules": {
+      "cannot_combine_with": [],
+      "conflict_reason": "Merit award, permissible with government scholarships.",
+      "can_combine_with": [
+        "SCH001",
+        "SCH003",
+        "SCH007"
+      ]
+    }
+  },
+  {
+    "id": "SCH015",
+    "name": "Post-Matric Scholarship for OBC Students",
+    "provider": "State OBC & Social Welfare Dept",
+    "eligibility": {
+      "income_limit": 150000,
+      "category": [
+        "OBC"
+      ],
+      "course": [
+        "Diploma",
+        "B.E.",
+        "B.Tech",
+        "B.Sc",
+        "B.Com"
+      ],
+      "min_academic_percentage": 50.0,
+      "gender": "All",
+      "state_domicile": "Maharashtra"
+    },
+    "benefit_amount": 35000,
+    "required_documents": [
+      "Non-Creamy Layer Certificate",
+      "Caste Certificate",
+      "Tahshildar Income Certificate (< 1.5 Lakh)",
+      "Maharashtra Domicile Certificate"
+    ],
+    "deadline": "2026-10-31",
+    "conflict_rules": {
+      "cannot_combine_with": [
+        "SCH001",
+        "SCH006",
+        "SCH007"
+      ],
+      "conflict_reason": "State OBC Dept clause: Multiple tuition fee reimbursement claims under duplicate portals are rejected.",
+      "can_combine_with": [
+        "SCH004",
+        "SCH005",
+        "SCH012"
+      ]
+    }
+  }
+]
