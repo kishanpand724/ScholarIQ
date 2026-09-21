@@ -1,8 +1,10 @@
 {
   "category": "EWS",
   "income": 180000,
-  "percentage": 92,
+  "percentage": 82,
   "course": "B.Tech",
   "domicile": "Maharashtra",
-  "gender": "Male"
+  "gender": "Male",
+  "has_disability": false,
+  "disability_percentage": 0
 }
