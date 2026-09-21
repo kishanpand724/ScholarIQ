@@ -2,74 +2,76 @@ import json
 import os
 
 
-# ==============================
-# LOAD JSON FILE
-# ==============================
-
 def load_json(file_path):
     with open(file_path, "r", encoding="utf-8") as file:
         return json.load(file)
 
 
-# ==============================
-# CHECK ONE SCHOLARSHIP
-# ==============================
+# Text ko comparison ke liye normalize karta hai
+def normalize(value):
+    return str(value).strip().lower().replace(".", "")
+
 
 def check_eligibility(student, scholarship):
-
     rules = scholarship["eligibility"]
 
     # Income
     if student["income"] > rules["income_limit"]:
-        return False, "Income exceeds limit"
+        return False, "Income exceeds the scholarship limit"
 
     # Category
-    if student["category"] not in rules["category"]:
+    student_category = normalize(student["category"])
+    allowed_categories = [
+        normalize(category) for category in rules["category"]
+    ]
+
+    if student_category not in allowed_categories:
         return False, "Category not eligible"
 
     # Course
-    if student["course"] not in rules["course"]:
+    student_course = normalize(student["course"])
+    allowed_courses = [
+        normalize(course) for course in rules["course"]
+    ]
+
+    if student_course not in allowed_courses:
         return False, "Course not eligible"
 
-    # Percentage
+    # Academic percentage
     if student["percentage"] < rules["min_academic_percentage"]:
-        return False, "Percentage too low"
+        return False, "Academic percentage is below the required minimum"
 
     # Gender
     required_gender = rules.get("gender", "All")
 
-    if required_gender != "All":
-        if student["gender"] != required_gender:
+    if normalize(required_gender) != "all":
+        if normalize(student["gender"]) != normalize(required_gender):
             return False, "Gender requirement not satisfied"
 
     # Domicile
-    required_domicile = rules.get("state_domicile", "All India")
+    required_domicile = rules["state_domicile"]
 
-    if required_domicile != "All India":
-        if student["domicile"] != required_domicile:
+    if normalize(required_domicile) != "all india":
+        if normalize(student["domicile"]) != normalize(required_domicile):
             return False, "Domicile requirement not satisfied"
 
-    return True, "Eligible"
+    return True, "All eligibility conditions satisfied"
 
-
-# ==============================
-# FIND ALL ELIGIBLE
-# ==============================
 
 def find_eligible_scholarships(student, scholarships):
-
     eligible = []
     rejected = []
 
     for scholarship in scholarships:
 
-        result, reason = check_eligibility(
+        is_eligible, reason = check_eligibility(
             student,
             scholarship
         )
 
-        if result:
+        if is_eligible:
             eligible.append(scholarship)
+
         else:
             rejected.append({
                 "id": scholarship["id"],
@@ -80,14 +82,12 @@ def find_eligible_scholarships(student, scholarships):
     return eligible, rejected
 
 
-# ==============================
-# PROJECT PATH
-# ==============================
+# --------------------------------------
+# FILE PATHS
+# --------------------------------------
 
 BASE_DIR = os.path.dirname(
-    os.path.dirname(
-        os.path.abspath(__file__)
-    )
+    os.path.dirname(os.path.abspath(__file__))
 )
 
 student_path = os.path.join(
@@ -103,17 +103,17 @@ scholarships_path = os.path.join(
 )
 
 
-# ==============================
+# --------------------------------------
 # LOAD DATA
-# ==============================
+# --------------------------------------
 
 student = load_json(student_path)
 scholarships = load_json(scholarships_path)
 
 
-# ==============================
-# RUN ENGINE
-# ==============================
+# --------------------------------------
+# CHECK ELIGIBILITY
+# --------------------------------------
 
 eligible, rejected = find_eligible_scholarships(
     student,
@@ -121,25 +121,21 @@ eligible, rejected = find_eligible_scholarships(
 )
 
 
-# ==============================
+# --------------------------------------
 # OUTPUT
-# ==============================
+# --------------------------------------
 
 print("\n======================================")
 print("       MUSA CODEX - ELIGIBILITY")
 print("======================================\n")
 
-
 print("ELIGIBLE SCHOLARSHIPS:\n")
 
 for scholarship in eligible:
-
     print(
-        scholarship["id"],
-        "|",
-        scholarship["name"],
-        "| Benefit: ₹",
-        scholarship["benefit_amount"]
+        f"{scholarship['id']} | "
+        f"{scholarship['name']} | "
+        f"Benefit: ₹{scholarship['benefit_amount']}"
     )
 
 
@@ -147,32 +143,17 @@ print("\n--------------------------------------")
 print("NOT ELIGIBLE:\n")
 
 for scholarship in rejected:
-
     print(
-        scholarship["id"],
-        "|",
-        scholarship["name"]
+        f"{scholarship['id']} | "
+        f"{scholarship['name']}"
     )
 
     print(
-        "Reason:",
-        scholarship["reason"]
+        f"Reason: {scholarship['reason']}\n"
     )
-
-    print()
 
 
 print("--------------------------------------")
-
-print(
-    "Total Eligible:",
-    len(eligible)
-)
-
-print(
-    "Total Rejected:",
-    len(rejected)
-)
-
+print(f"Total Eligible: {len(eligible)}")
+print(f"Total Rejected: {len(rejected)}")
 print("======================================")
-
